@@ -1,10 +1,11 @@
 import type { Config } from 'drizzle-kit';
+import { config } from './lib/config';  // Adjust this path if necessary
 
 export default {
   schema: './lib/db/schema.ts',
   out: './lib/db/migrations',
-  dialect: 'postgresql',
+  driver: 'pg',
   dbCredentials: {
-    url: process.env.POSTGRES_URL!,
+    connectionString: config.databaseUrl,
   },
 } satisfies Config;
